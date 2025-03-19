@@ -1,7 +1,8 @@
 import React from 'react'
 import Sidebar from '../components/Sidebar'
 import Navbar from '../components/Navbar'
-import Hero from '../components/Hero'
+import {Outlet} from 'react-router-dom'
+
 
 const Index = () => {
   return (
@@ -10,14 +11,12 @@ const Index = () => {
         <Sidebar />
 
         <div className="content">
-            <div className="flex flex-col">
-                <Navbar />
-                <div className="mt-11 overflow-auto">
+            <Navbar />
 
-                <Hero />
+            
+            <div className="mt-6 overflow-auto flex flex-1 flex-col">
+              <Outlet />
 
-                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos odit quae vero dolores ea incidunt autem possimus obcaecati voluptates accusantium, tempore aperiam voluptate vel voluptatibus maxime quis sunt delectus dicta voluptatem beatae modi cumque minima ratione! Harum quo pariatur distinctio delectus praesentium ipsa voluptatum nesciunt! Nulla voluptatum porro expedita magnam amet voluptates totam praesentium minus,
-                </div>
             </div>
             
         </div>
