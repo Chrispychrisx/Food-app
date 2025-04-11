@@ -2,67 +2,60 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
+import Hero from './components/Hero.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Home from './pages/home.jsx'
 import About from './pages/About.jsx'
-import Categories from './pages/Categories.jsx'
-import CategoryDetail from './pages/CategoryDetail.jsx'
-import ConfectioneryPage from './pages/ConfectioneryPage.jsx'
-import Local from './pages/Local.jsx'
-import Continental from './pages/Continental.jsx'
-import Chinese from './pages/Chinese.jsx'
-import Appetizer from './pages/Appetizer.jsx'
-import Vegetarian from './pages/Vegetarian.jsx'
+import CategoryPage from './pages/CategoryPage.jsx'
+import FoodDetail from './pages/FoodDetail.jsx'
+import CreateFood from './pages/CreateFood.jsx'
+import EditFood from './pages/EditFood.jsx'
+import Contact from './pages/Contact.jsx'
+import Login from './pages/Login.jsx'
+import Register from './pages/Register.jsx'
 
 const router = createBrowserRouter([
-  { path: '/', element: <App /> },
-  { path: '/home', element: <Home />},
-  { path: '/about', element: <About />},
-  { path: '/categories', element: <Categories />, 
-    children: [
-      { path: '/categories/:cate_id', element: <CategoryDetail />}
-    ]
-  },  
+  { path: '/', element: <Login /> },
+  { path: '/register', element: <Register /> },
 
-  {path: '/category', element: <App />,
-    children: [
-      { path: '/category/confectioneries', element: <ConfectioneryPage /> }
-    ]
-  },
-
-    
-
-  {path: '/category', element: <App />,
-    children: [
-      { path: '/category/local', element: <Local /> }
-    ]
-  },
-
-
-  {path: '/category', element: <App />,
-    children: [
-      { path: '/category/continental', element: <Continental /> }
-    ]
-  },
-
-  {path: '/category', element: <App />,
-    children: [
-      { path: '/category/chinese', element: <Chinese /> }
-    ]
-  },
-
-  {path: '/category', element: <App />,
-    children: [
-      { path: '/category/appetizer', element: <Appetizer /> }
-    ]
-  },
-
-  {path: '/category', element: <App />,
-    children: [
-      { path: '/category/vegetarian', element: <Vegetarian /> }
-    ]
-  }
   
+  { path: '/home', element: <App />,
+    children: [
+      {path: '/home', element: <Hero />}
+    ]
+  },
+  { path: '/', element: <App />,
+    children: [
+      {path: '/contact', element: <Contact />}
+    ]
+  },
+  
+  
+  {path: '/category-page', element: <App />, 
+    children: [
+      { path: '/category-page/:category', element: <CategoryPage /> }
+    ]
+  },
+
+  {path: '/category', element: <App />, 
+    children: [
+      { path: '/category/:foods/:cate/:id', element: <FoodDetail /> }
+    ]
+  },
+
+
+  { path: '/meal', element: <App />,
+   children: [
+     { path: '/meal/create', element: <CreateFood />, }
+   ]
+  },
+
+  { path: '/meal', element: <App />,
+   children: [
+     { path: '/meal/edit/:category/:id', element: <EditFood />, }
+   ]
+  },
+
+
   
 ]);
 
